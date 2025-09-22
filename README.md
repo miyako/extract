@@ -6,3 +6,4 @@ tool to extract text from major document formats
 - [x] pdf
 - [x] msg
 - [x] ppt
+- [x] rtf
