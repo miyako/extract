@@ -26,22 +26,22 @@ Else
 	var $data : 4D:C1709.Blob
 	
 	$tasks:=[]
-	For each ($file; $files)
-		$tasks.push({file: $file})
-	End for each 
+	//For each ($file; $files)
+	//$tasks.push({file: $file})
+	//End for each 
 	
 	//file to text sync✅
-	$texts:=$extract.getText($tasks)
+	//$texts:=$extract.getText($tasks)
 	
 	//file to text async✅
 	//$extract.getText($tasks; Formula(onResponse))
 	
-	//For each ($file; $files)
-	//$tasks.push({file: $file.getContent()})
-	//End for each 
+	For each ($file; $files)
+		$tasks.push({file: $file.getContent()})
+	End for each 
 	
 	//blob to text sync✅
-	//$texts:=$extract.getText($tasks)
+	$texts:=$extract.getText($tasks)
 	
 	//blob to text async✅
 	//$extract.getText($tasks; Formula(onResponse))

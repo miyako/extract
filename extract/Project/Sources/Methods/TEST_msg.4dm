@@ -40,8 +40,8 @@ Else
 		$tasks.push({file: $file.getContent()})
 	End for each 
 	
-	//blob to text sync❌
-	//$texts:=$extract.getText($tasks)
+	//blob to text sync✅
+	$texts:=$extract.getText($tasks)
 	
 	//blob to text async✅
 	$extract.getText($tasks; Formula:C1597(onResponse))
