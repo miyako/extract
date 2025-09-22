@@ -9,6 +9,8 @@ Class constructor($type : Text; $controller : 4D:C1709.Class)
 	End if 
 	
 	Case of 
+		: ($type="html") || ($type=".html") || ($type="text/html")
+			Super:C1705("tidy-parser"; $controller)
 		: ($type="msg") || ($type=".msg") || ($type="application/vnd.ms-outlook")
 			Super:C1705("olecf-parser"; $controller)
 		: ($type="ppt") || ($type=".ppt") || ($type="application/vnd.ms-powerpoint")
