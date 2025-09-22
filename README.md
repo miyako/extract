@@ -5,6 +5,7 @@ tool to extract text from major document formats
 
 - [x] pdf
 - [x] msg
+- [ ] eml (not implemented) 
 - [x] ppt
 - [ ] xls (not implemented)
 - [ ] doc (not implemented)
