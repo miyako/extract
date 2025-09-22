@@ -9,7 +9,7 @@ If (Count parameters:C259=0)
 Else 
 	
 	var $extract : cs:C1710.extract
-	$extract:=cs:C1710.extract.new("pdf")
+	$extract:=cs:C1710.extract.new(".pdf")
 	
 	var $srcFolder : 4D:C1709.Folder
 	$srcFolder:=Folder:C1567(fk documents folder:K87:21).folder("samples/pdf")

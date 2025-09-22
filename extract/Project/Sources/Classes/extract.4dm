@@ -1,33 +1,28 @@
-property data : Collection
-
 Class extends _CLI
 
+Function get formats : Collection
+	
 Class constructor($type : Text; $controller : 4D:C1709.Class)
+	
+	$formats:=[\
+		{extension: ".pdf"; parser: "pdfium-parser"}; \
+		{extension: ".rtf"; parser: "rtf-parser"}; \
+		{extension: ".ppt"; parser: "olecf-parser"}; \
+		{extension: ".msg"; parser: "olecf-parser"}; \
+		{extension: ".html"; parser: "tidy-parser"}]
 	
 	If (Not:C34(OB Instance of:C1731($controller; cs:C1710._extract_Controller)))
 		$controller:=cs:C1710._extract_Controller
 	End if 
 	
-	Case of 
-		: ($type="ost") || ($type=".ost")
-			Super:C1705("pff-parser"; $controller)
-		: ($type="pst") || ($type=".pst")
-			Super:C1705("pff-parser"; $controller)
-		: ($type="pab") || ($type=".pab")
-			Super:C1705("pff-parser"; $controller)
-		: ($type="html") || ($type=".html") || ($type="text/html")
-			Super:C1705("tidy-parser"; $controller)
-		: ($type="msg") || ($type=".msg") || ($type="application/vnd.ms-outlook")
-			Super:C1705("olecf-parser"; $controller)
-		: ($type="ppt") || ($type=".ppt") || ($type="application/vnd.ms-powerpoint")
-			Super:C1705("olecf-parser"; $controller)
-		: ($type="rtf") || ($type=".rtf") || ($type="application/rtf")
-			Super:C1705("rtf-parser"; $controller)
-		: ($type="pdf") || ($type=".pdf") || ($type="application/pdf")
-			Super:C1705("pdfium-parser"; $controller)
-		Else 
-			TRACE:C157
-	End case 
+	var $format : Object
+	$format:=$formats.query("extension === :1"; $type).first()
+	
+	If ($format=Null:C1517)
+		return 
+	End if 
+	
+	Super:C1705($format.parser; $controller)
 	
 Function get worker() : 4D:C1709.SystemWorker
 	
