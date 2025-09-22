@@ -8,9 +8,9 @@ tool to extract text from major document formats
 - [x] ppt
 - [x] rtf
 - [x] html
-- [ ] pptx
-- [ ] xlsx
-- [ ] docx
+- [x] pptx
+- [x] xlsx
+- [x] docx
 
 ## acknowledgements
 
