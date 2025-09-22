@@ -9,6 +9,10 @@ Class constructor($type : Text; $controller : 4D:C1709.Class)
 	End if 
 	
 	Case of 
+		: ($type="msg") || ($type=".msg") || ($type="application/vnd.ms-outlook")
+			Super:C1705("olecf-parser"; $controller)
+		: ($type="ppt") || ($type=".ppt") || ($type="application/vnd.ms-powerpoint")
+			Super:C1705("olecf-parser"; $controller)
 		: ($type="rtf") || ($type=".rtf") || ($type="application/rtf")
 			Super:C1705("rtf-parser"; $controller)
 		: ($type="pdf") || ($type=".pdf") || ($type="application/pdf")
