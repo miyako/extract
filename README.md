@@ -5,7 +5,7 @@
 
 
 # extract
-tool to extract text from major document formats
+tool to extract text from major document formats (namespace: `extract`)
 
 ## supported formats
 
