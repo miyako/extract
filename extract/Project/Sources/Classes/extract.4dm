@@ -9,7 +9,10 @@ Class constructor($type : Text; $controller : 4D:C1709.Class)
 		{extension: ".rtf"; parser: "rtf-parser"}; \
 		{extension: ".ppt"; parser: "olecf-parser"}; \
 		{extension: ".msg"; parser: "olecf-parser"}; \
-		{extension: ".html"; parser: "tidy-parser"}]
+		{extension: ".html"; parser: "tidy-parser"}; \
+		{extension: ".docx"; parser: "opc-parser"}; \
+		{extension: ".xlsx"; parser: "opc-parser"}; \
+		{extension: ".pptx"; parser: "opc-parser"}]
 	
 	If (Not:C34(OB Instance of:C1731($controller; cs:C1710._extract_Controller)))
 		$controller:=cs:C1710._extract_Controller
