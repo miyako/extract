@@ -7,7 +7,7 @@ Class constructor($type : Text; $controller : 4D:C1709.Class)
 	End if 
 	
 	var $formats : Collection
-	$formats:=cs:C1710.formats.me.formats
+	$formats:=cs:C1710.formats.new().formats
 	
 	var $format : Object
 	$format:=$formats.query("extension === :1"; $type).first()
