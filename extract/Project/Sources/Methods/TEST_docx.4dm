@@ -37,13 +37,13 @@ Else
 	//$extract.getText($tasks; Formula(onResponse))
 	
 	For each ($file; $files)
-		$tasks.push({file: $file.getContent()})
+		$tasks.push({file: $file.getContent(); data: $file})
 	End for each 
 	
 	//blob to text sync✅
-	$texts:=$extract.getText($tasks)
+	//$texts:=$extract.getText($tasks)
 	
 	//blob to text async✅
-	//$extract.getText($tasks; Formula(onResponse))
+	$extract.getText($tasks; Formula:C1597(onResponse))
 	
 End if 

@@ -1,8 +1,8 @@
 property _complete; hideWindow : Boolean
 property dataType; encoding : Text
 property variables : Object
-property _commands; _messages : Collection
-property timeout : Variant
+property _commands; _messages; _contexts : Collection
+property timeout; _context : Variant
 property _worker : 4D:C1709.SystemWorker
 property onResponse; _onResponse; onTerminate; _onTerminate : 4D:C1709.Function
 property _instance : cs:C1710._CLI
@@ -27,6 +27,7 @@ Class constructor($CLI : cs:C1710._CLI)
 	This:C1470._instance:=$CLI
 	This:C1470._commands:=[]
 	This:C1470._messages:=[]
+	This:C1470._contexts:=[]
 	This:C1470._worker:=Null:C1517
 	This:C1470._complete:=False:C215  //flag to indicate whether we have queued commands
 	
@@ -48,15 +49,17 @@ Function get worker()->$worker : 4D:C1709.SystemWorker
 	
 	//MARK:-public methods
 	
-Function execute($command : Variant; $message : Variant) : cs:C1710._CLI_Controller
+Function execute($command : Variant; $message : Variant; $context : Variant) : cs:C1710._CLI_Controller
 	
 	var $commands : Collection
 	var $messages : Collection
+	var $contexts : Collection
 	
 	Case of 
 		: (Value type:C1509($command)=Is text:K8:3)
 			$commands:=[$command]
 			$messages:=[$message]
+			$contexts:=[$context]
 		: (Value type:C1509($command)=Is collection:K8:32)
 			$commands:=$command
 			If (Value type:C1509($message)=Is collection:K8:32) && ($message.length=$commands.length)
@@ -64,12 +67,18 @@ Function execute($command : Variant; $message : Variant) : cs:C1710._CLI_Control
 			Else 
 				$messages[$commands.length-1]:=Null:C1517
 			End if 
+			If (Value type:C1509($context)=Is collection:K8:32) && ($context.length=$commands.length)
+				$contexts:=$context
+			Else 
+				$contexts[$commands.length-1]:=Null:C1517
+			End if 
 	End case 
 	
 	If ($commands#Null:C1517) && ($commands.length#0)
 		
 		This:C1470._commands.combine($commands)
 		This:C1470._messages.combine($messages)
+		This:C1470._contexts.combine($contexts)
 		
 		If (This:C1470._worker=Null:C1517)
 			This:C1470._onResponse:=This:C1470.onResponse
@@ -119,6 +128,7 @@ Function _onExecute($worker : 4D:C1709.SystemWorker; $params : Object)
 	End if 
 	
 	If (OB Instance of:C1731(This:C1470._onResponse; 4D:C1709.Function))
+		$params.context:=This:C1470._context
 		This:C1470._onResponse.call(This:C1470; $worker; $params)
 	End if 
 	
@@ -129,6 +139,8 @@ Function _execute()
 	
 	var $message : Variant
 	$message:=This:C1470._messages.shift()
+	
+	This:C1470._context:=This:C1470._contexts.shift()
 	
 	var $vt : Integer
 	$vt:=Value type:C1509($message)

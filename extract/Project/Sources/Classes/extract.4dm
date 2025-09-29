@@ -77,15 +77,19 @@ Function getText($option : Variant; $formula : 4D:C1709.Function) : Collection
 		$command+=" -r "
 		
 		var $worker : 4D:C1709.SystemWorker
-		$worker:=This:C1470.controller.execute($command; $isStream ? $option.file : Null:C1517).worker
+		$worker:=This:C1470.controller.execute($command; $isStream ? $option.file : Null:C1517; $option.data).worker
 		
 		If (Not:C34($isAsync))
 			$worker.wait()
 		End if 
 		
 		If ($stdOut) && (Not:C34($isAsync))
+			//%W-550.26
+			//%W-550.2
 			$results.push(This:C1470.controller.stdOut)
 			This:C1470.controller.clear()
+			//%W+550.2
+			//%W+550.26
 		End if 
 		
 	End for each 
@@ -93,7 +97,3 @@ Function getText($option : Variant; $formula : 4D:C1709.Function) : Collection
 	If ($stdOut) && (Not:C34($isAsync))
 		return $results
 	End if 
-	
-Function get controller()->$controller : cs:C1710._extract_Controller
-	
-	return This:C1470.controller
