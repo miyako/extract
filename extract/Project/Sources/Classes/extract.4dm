@@ -1,22 +1,13 @@
 Class extends _CLI
 
-Function get formats : Collection
-	
 Class constructor($type : Text; $controller : 4D:C1709.Class)
-	
-	$formats:=[\
-		{extension: ".pdf"; parser: "pdfium-parser"}; \
-		{extension: ".rtf"; parser: "rtf-parser"}; \
-		{extension: ".ppt"; parser: "olecf-parser"}; \
-		{extension: ".msg"; parser: "olecf-parser"}; \
-		{extension: ".html"; parser: "tidy-parser"}; \
-		{extension: ".docx"; parser: "opc-parser"}; \
-		{extension: ".xlsx"; parser: "opc-parser"}; \
-		{extension: ".pptx"; parser: "opc-parser"}]
 	
 	If (Not:C34(OB Instance of:C1731($controller; cs:C1710._extract_Controller)))
 		$controller:=cs:C1710._extract_Controller
 	End if 
+	
+	var $formats : Collection
+	$formats:=cs:C1710.formats.me.formats
 	
 	var $format : Object
 	$format:=$formats.query("extension === :1"; $type).first()
@@ -102,3 +93,7 @@ Function getText($option : Variant; $formula : 4D:C1709.Function) : Collection
 	If ($stdOut) && (Not:C34($isAsync))
 		return $results
 	End if 
+	
+Function get controller()->$controller : cs:C1710._extract_Controller
+	
+	return This:C1470.controller

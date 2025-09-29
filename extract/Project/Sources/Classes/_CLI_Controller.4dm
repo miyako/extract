@@ -1,3 +1,13 @@
+property _complete; hideWindow : Boolean
+property dataType; encoding : Text
+property variables : Object
+property _commands; _messages : Collection
+property timeout : Variant
+property _worker : 4D:C1709.SystemWorker
+property onResponse; _onResponse; onTerminate; _onTerminate : 4D:C1709.Function
+property _instance : cs:C1710._CLI
+property currentDirectory : 4D:C1709.Folder
+
 Class constructor($CLI : cs:C1710._CLI)
 	
 	//use default event handler if not defined in subclass definition
