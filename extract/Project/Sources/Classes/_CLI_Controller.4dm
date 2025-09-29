@@ -2,11 +2,12 @@ property _complete; hideWindow : Boolean
 property dataType; encoding : Text
 property variables : Object
 property _commands; _messages; _contexts : Collection
-property timeout; _context : Variant
+property timeout : Variant
 property _worker : 4D:C1709.SystemWorker
 property onResponse; _onResponse; onTerminate; _onTerminate : 4D:C1709.Function
 property _instance : cs:C1710._CLI
 property currentDirectory : 4D:C1709.Folder
+property SYSTEM_WORKER_CONTEXT : Object
 
 Class constructor($CLI : cs:C1710._CLI)
 	
@@ -30,6 +31,7 @@ Class constructor($CLI : cs:C1710._CLI)
 	This:C1470._contexts:=[]
 	This:C1470._worker:=Null:C1517
 	This:C1470._complete:=False:C215  //flag to indicate whether we have queued commands
+	This:C1470.SYSTEM_WORKER_CONTEXT:={}  //kvp to manage context
 	
 Function get commands()->$commands : Collection
 	
@@ -128,19 +130,23 @@ Function _onExecute($worker : 4D:C1709.SystemWorker; $params : Object)
 	End if 
 	
 	If (OB Instance of:C1731(This:C1470._onResponse; 4D:C1709.Function))
-		$params.context:=This:C1470._context
+		$params.context:=This:C1470.SYSTEM_WORKER_CONTEXT[String:C10($worker.pid)]
 		This:C1470._onResponse.call(This:C1470; $worker; $params)
 	End if 
 	
 Function _execute()
 	
 	This:C1470._complete:=False:C215
+	
+	var $SYSTEM_WORKER_CONTEXT : Text
+	$SYSTEM_WORKER_CONTEXT:=Generate UUID:C1066
+	
 	This:C1470._worker:=4D:C1709.SystemWorker.new(This:C1470._commands.shift(); This:C1470)
+	
+	This:C1470.SYSTEM_WORKER_CONTEXT[String:C10(This:C1470._worker.pid)]:=This:C1470._contexts.shift()
 	
 	var $message : Variant
 	$message:=This:C1470._messages.shift()
-	
-	This:C1470._context:=This:C1470._contexts.shift()
 	
 	var $vt : Integer
 	$vt:=Value type:C1509($message)
