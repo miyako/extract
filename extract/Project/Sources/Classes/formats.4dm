@@ -11,6 +11,7 @@ Class constructor()
 		{extension: ".html"; parser: "tidy-parser"}; \
 		{extension: ".docx"; parser: "opc-parser"}; \
 		{extension: ".xlsx"; parser: "opc-parser"}; \
+		{extension: ".txt"; parser: "txt-parser"}; \
 		{extension: ".pptx"; parser: "opc-parser"}]
 	
 	This:C1470["_formats"]:=$formats
