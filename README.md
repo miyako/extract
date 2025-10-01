@@ -20,6 +20,7 @@ tool to extract text from major document formats (namespace: `extract`)
 - [x] pptx
 - [x] xlsx
 - [x] docx
+- [X] txt
 
 ## acknowledgements
 
