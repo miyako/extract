@@ -65,7 +65,7 @@ var $text : Text
 $text:=$worker.response
 ```
 
-> ![!TIP]
+> [!TIP]
 > whatever value you pass in `data` is returned in `context`
 
 ```4d
