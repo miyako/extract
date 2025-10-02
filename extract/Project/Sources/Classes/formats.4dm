@@ -11,6 +11,7 @@ Class constructor()
 		{extension: ".html"; parser: "tidy-parser"}; \
 		{extension: ".docx"; parser: "opc-parser"}; \
 		{extension: ".xlsx"; parser: "opc-parser"}; \
+		{extension: ".xls"; parser: "xls-parser"}; \
 		{extension: ".txt"; parser: "txt-parser"}; \
 		{extension: ".pptx"; parser: "opc-parser"}]
 	
