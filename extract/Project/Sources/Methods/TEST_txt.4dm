@@ -13,7 +13,6 @@ Else
 	
 	var $srcFolder : 4D:C1709.Folder
 	$srcFolder:=Folder:C1567(fk documents folder:K87:21).folder("samples/txt")
-	$srcFolder:=Folder:C1567(fk desktop folder:K87:19).folder("files")
 	
 	ASSERT:C1129($srcFolder.exists)
 	
