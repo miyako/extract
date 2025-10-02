@@ -18,6 +18,7 @@ tool to extract text from major document formats (namespace: `extract`)
 - [x] rtf
 - [x] html
 - [x] pptx
+- [x] xls
 - [x] xlsx
 - [x] docx
 - [X] txt
