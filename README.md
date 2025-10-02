@@ -44,7 +44,7 @@ use `cs.extract.formats` to get the list of supported formats.
 $extensions:=cs.extract.formats.new().extensions
 ```
 
-there are 2 ways to synchronous and asynchronous. 
+there are 2 ways to invoke `.getText()`; synchronous and asynchronous. 
 
 **synchronous**: pass a single parameter and receive a collection of results in return.
 
