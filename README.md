@@ -84,4 +84,4 @@ use this to match input against output.
 
 |property|type|description|
 |-|-|-|
-|file|`4D.File` `4D.Blob` `Text`|input|
+|`file`|`4D.File` `4D.Blob` `Text`|input|
