@@ -9,19 +9,19 @@ tool to extract text from major document formats (namespace: `extract`)
 
 ## supported formats
 
-- [x] pdf
-- [x] msg
-- [ ] eml (not implemented) 
+|format|parser|
+|-|-|
+|xls|[xls-parser](https://github.com/miyako/xls-parser/)|
+|pdf|[pdfium-parser](https://github.com/miyako/pdfium-parser/)|
+|msg|[olecf-parser](https://github.com/miyako/olecf-parser/)|
+|rtf|[rtf-parser](https://github.com/miyako/rtf-parser/)|
+|txt|[txt-parser](https://github.com/miyako/txt-parser/)|
+|html|[tidy-parser](https://github.com/miyako/tidy-parser/)|
+
 - [x] ppt
-- [ ] xls (not implemented)
-- [ ] doc (not implemented)
-- [x] rtf
-- [x] html
 - [x] pptx
-- [x] xls
 - [x] xlsx
 - [x] docx
-- [X] txt
 
 ## acknowledgements
 
