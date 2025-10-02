@@ -12,6 +12,7 @@ tool to extract text from major document formats (namespace: `extract`)
 |format|parser|
 |-|-|
 |xls|[xls-parser](https://github.com/miyako/xls-parser/)|
+|xlsx|[opc-parser](https://github.com/miyako/opc-parser/)|
 |pdf|[pdfium-parser](https://github.com/miyako/pdfium-parser/)|
 |msg|[olecf-parser](https://github.com/miyako/olecf-parser/)|
 |rtf|[rtf-parser](https://github.com/miyako/rtf-parser/)|
@@ -20,7 +21,6 @@ tool to extract text from major document formats (namespace: `extract`)
 
 - [x] ppt
 - [x] pptx
-- [x] xlsx
 - [x] docx
 
 ## acknowledgements
