@@ -77,7 +77,7 @@ $extract.getText({file: $file.getContent(); data: $file}; Formula(onResponse))
 
 var $text : Text
 $text:=$worker.response
-$file:=$params.contect
+$file:=$params.context
 ```
 
 use this to match input against output.
