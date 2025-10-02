@@ -82,11 +82,6 @@ $file:=$params.context
 
 use this to match input against output.
 
-the `file` property can be 
-
-* `4D.File`
-* `4D.Blob`
-* `Text`  
-
-
-
+|property|type|description|
+|-|-|-|
+|file|`4D.File` `4D.Blob` `Text`|input|
