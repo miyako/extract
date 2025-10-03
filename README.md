@@ -11,8 +11,8 @@ tool to extract text from major document formats (namespace: `extract`)
 
 |format|parser|remarks|
 |-|-|-|
-|xls|[xls-parser](https://github.com/miyako/xls-parser/)|
-|xlsx|[opc-parser](https://github.com/miyako/opc-parser/)|
+|xls|[xls-parser](https://github.com/miyako/xls-parser/)|cells comma delimited|
+|xlsx|[opc-parser](https://github.com/miyako/opc-parser/)|cells comma delimited|
 |pdf|[pdfium-parser](https://github.com/miyako/pdfium-parser/)|
 |ppt|[olecf-parser](https://github.com/miyako/olecf-parser/)|
 |msg|[olecf-parser](https://github.com/miyako/olecf-parser/)|subject+body|
