@@ -9,14 +9,14 @@ tool to extract text from major document formats (namespace: `extract`)
 
 ## supported formats
 
-|format|parser|
-|-|-|
+|format|parser|remarks|
+|-|-|-|
 |xls|[xls-parser](https://github.com/miyako/xls-parser/)|
 |xlsx|[opc-parser](https://github.com/miyako/opc-parser/)|
 |pdf|[pdfium-parser](https://github.com/miyako/pdfium-parser/)|
 |ppt|[olecf-parser](https://github.com/miyako/olecf-parser/)|
 |msg|[olecf-parser](https://github.com/miyako/olecf-parser/)|
-|eml|[gmime-parser](https://github.com/miyako/gmime-parser/)|
+|eml|[gmime-parser](https://github.com/miyako/gmime-parser/)|subject+body|
 |rtf|[rtf-parser](https://github.com/miyako/rtf-parser/)|
 |txt|[txt-parser](https://github.com/miyako/txt-parser/)|
 |html|[tidy-parser](https://github.com/miyako/tidy-parser/)|
