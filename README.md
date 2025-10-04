@@ -22,7 +22,7 @@ tool to extract text from major document formats (namespace: `extract`)
 |ppt|[olecf-parser](https://github.com/miyako/olecf-parser/)|
 |pptx|[opc-parser](https://github.com/miyako/opc-parser/)|
 |doc|[olecf-parser](https://github.com/miyako/olecf-parser/)|with control characters|
-|docx|[opc-parser](https://github.com/miyako/opc-parser/)|
+|docx|[opc-parser](https://github.com/miyako/opc-parser/)|without header/footer|
 
 
 ## acknowledgements
