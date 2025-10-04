@@ -8,6 +8,7 @@ Class constructor()
 		{extension: ".rtf"; parser: "rtf-parser"}; \
 		{extension: ".ppt"; parser: "olecf-parser"}; \
 		{extension: ".msg"; parser: "olecf-parser"}; \
+		{extension: ".doc"; parser: "olecf-parser"}; \
 		{extension: ".html"; parser: "tidy-parser"}; \
 		{extension: ".docx"; parser: "opc-parser"}; \
 		{extension: ".xlsx"; parser: "opc-parser"}; \
