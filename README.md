@@ -21,7 +21,7 @@ tool to extract text from major document formats (namespace: `extract`)
 |html|[tidy-parser](https://github.com/miyako/tidy-parser/)|
 |ppt|[olecf-parser](https://github.com/miyako/olecf-parser/)|
 |pptx|[opc-parser](https://github.com/miyako/opc-parser/)|
-|doc|[olecf-parser](https://github.com/miyako/olecf-parser/)||
+|doc|[olecf-parser](https://github.com/miyako/olecf-parser/)|control characters kept|
 |docx|[opc-parser](https://github.com/miyako/opc-parser/)|
 
 
