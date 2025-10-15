@@ -28,6 +28,14 @@ Function terminate()
 	
 Function getText($option : Variant; $formula : 4D:C1709.Function) : Collection
 	
+	var $detectionModel; $recognitionModel : 4D:C1709.File
+	
+	Case of 
+		: (This:C1470.executableName="ocrs-parser")
+			$detectionModel:=File:C1566("/RESOURCES/ocrs/text-detection.rten")
+			$recognitionModel:=File:C1566("/RESOURCES/ocrs/text-recognition.rten")
+	End case 
+	
 	var $stdOut; $isStream; $isAsync : Boolean
 	var $options : Collection
 	var $results : Collection
@@ -59,6 +67,17 @@ Function getText($option : Variant; $formula : 4D:C1709.Function) : Collection
 		$stdOut:=Not:C34(OB Instance of:C1731($option.output; 4D:C1709.File))
 		
 		$command:=This:C1470.escape(This:C1470.executablePath)
+		
+		Case of 
+			: (This:C1470.executableName="ocrs-parser")
+				
+				$command+=" --detect-model "
+				$command+=This:C1470.escape(This:C1470.expand($detectionModel).path)
+				
+				$command+=" --rec-model "
+				$command+=This:C1470.escape(This:C1470.expand($recognitionModel).path)
+				
+		End case 
 		
 		Case of 
 			: (Value type:C1509($option.file)=Is object:K8:27) && (OB Instance of:C1731($option.file; 4D:C1709.File)) && ($option.file.exists)
