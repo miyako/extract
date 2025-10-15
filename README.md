@@ -23,7 +23,13 @@ tool to extract text from major document formats (namespace: `extract`)
 |pptx|[opc-parser](https://github.com/miyako/opc-parser/)|
 |doc|[olecf-parser](https://github.com/miyako/olecf-parser/)|with control characters|
 |docx|[opc-parser](https://github.com/miyako/opc-parser/)|without header/footer|
-
+|jpg|[ocrs-parser](https://github.com/miyako/ocrs-parser/)|only latin alphabet|
+|gif|[ocrs-parser](https://github.com/miyako/ocrs-parser/)|only latin alphabet|
+|ico|[ocrs-parser](https://github.com/miyako/ocrs-parser/)|only latin alphabet|
+|bmp|[ocrs-parser](https://github.com/miyako/ocrs-parser/)|only latin alphabet|
+|webp|[ocrs-parser](https://github.com/miyako/ocrs-parser/)|only latin alphabet|
+|pnm|[ocrs-parser](https://github.com/miyako/ocrs-parser/)|only latin alphabet|
+|png|[ocrs-parser](https://github.com/miyako/ocrs-parser/)|only latin alphabet|
 
 ## acknowledgements
 
@@ -31,6 +37,7 @@ tool to extract text from major document formats (namespace: `extract`)
 * [tidy-html5](https://github.com/htacg/tidy-html5)
 * [PDFium](https://github.com/PDFium/PDFium)
 * [OPC](https://github.com/freuter/libopc)
+* [ocrs](https://github.com/robertknight/ocrs)
 
 ## usage
 
