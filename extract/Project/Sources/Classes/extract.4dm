@@ -26,7 +26,7 @@ Function terminate()
 	
 	This:C1470.controller.terminate()
 	
-Function getText($option : Variant; $formula : 4D:C1709.Function) : Collection
+Function getText($option : Variant; $formula : 4D:C1709.Function; $json : Boolean) : Collection
 	
 	var $detectionModel; $recognitionModel : 4D:C1709.File
 	
@@ -93,7 +93,9 @@ Function getText($option : Variant; $formula : 4D:C1709.Function) : Collection
 			$command+=This:C1470.escape(This:C1470.expand($option.output).path)
 		End if 
 		
-		$command+=" -r "
+		If (Not:C34($json))
+			$command+=" -r "
+		End if 
 		
 		var $worker : 4D:C1709.SystemWorker
 		$worker:=This:C1470.controller.execute($command; $isStream ? $option.file : Null:C1517; $option.data).worker
