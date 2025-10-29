@@ -93,7 +93,9 @@ Function getText($option : Variant; $formula : 4D:C1709.Function; $json : Boolea
 			$command+=This:C1470.escape(This:C1470.expand($option.output).path)
 		End if 
 		
-		If (Not:C34($json))
+		If ($option.json#Null:C1517) && (Value type:C1509($option.json)=Is boolean:K8:9) && ($option.json)
+			//default
+		Else 
 			$command+=" -r "
 		End if 
 		
