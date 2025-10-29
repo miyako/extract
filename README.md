@@ -95,3 +95,13 @@ use this to match input against output.
 |property|type|description|
 |-|-|-|
 |`file`|`4D.File` `4D.Blob` `Text`|input|
+
+
+## added in `20.0.35`
+
+
+```4d
+$extract.getText({file: $file.getContent(); data: $file}; Formula(onResponse); $JSON : Boolean)
+```
+
+Pass `True` in `$JSON` to get result in JSON text. The structure of this object depends on the document format. See parser documentation.
