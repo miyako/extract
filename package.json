@@ -1,6 +1,6 @@
 {
   "name": "extract",
-  "description": "tool to extract text from major document formats",
+  "description": "Tool to extract text from major document formats",
   "author": [
     "Keisuke Miyako <keisuke.miyako@4D.com>"
   ],
