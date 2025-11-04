@@ -5,7 +5,7 @@
 
 
 # extract
-tool to extract text from major document formats (namespace: `extract`)
+Tool to extract text from major document formats (namespace: `extract`)
 
 ## supported formats
 
@@ -95,5 +95,4 @@ use this to match input against output.
 |property|type|description|
 |-|-|-|
 |`file`|`4D.File` `4D.Blob` `Text`|input|
-
-Pass `True` in `$JSON` to get result in JSON text. The structure of this object depends on the document format. See parser documentation.
+|`json`|`Boolean`|default: `false`|
