@@ -3,7 +3,7 @@ property stdErr : Text
 
 Class extends _CLI_Controller
 
-Class constructor($CLI : cs:C1710._CLI)
+shared Class constructor($CLI : cs:C1710._CLI)
 	
 	Super:C1705($CLI)
 	
