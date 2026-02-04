@@ -26,8 +26,39 @@ Class constructor($type : Text; $class : 4D:C1709.Class)
 	End if 
 	
 	Case of 
+		: ($format.extension=".pdf")
+			This:C1470.extract:=cs:C1710._extract_pdf.new($format.parser; $controller)
+		: ($format.extension=".ppt")
+			This:C1470.extract:=cs:C1710._extract_ppt.new($format.parser; $controller)
+		: ($format.extension=".rtf")
+			This:C1470.extract:=cs:C1710._extract_rtf.new($format.parser; $controller)
+		: ($format.extension=".msg")
+			This:C1470.extract:=cs:C1710._extract_msg.new($format.parser; $controller)
+		: ($format.extension=".doc")
+			This:C1470.extract:=cs:C1710._extract_doc.new($format.parser; $controller)
+		: ($format.extension=".html")
+			This:C1470.extract:=cs:C1710._extract_html.new($format.parser; $controller)
+		: ($format.extension=".docx")
+			This:C1470.extract:=cs:C1710._extract_docx.new($format.parser; $controller)
+		: ($format.extension=".xlsx")
+			This:C1470.extract:=cs:C1710._extract_xlsx.new($format.parser; $controller)
+		: ($format.extension=".xls")
+			This:C1470.extract:=cs:C1710._extract_xls.new($format.parser; $controller)
 		: ($format.extension=".txt")
 			This:C1470.extract:=cs:C1710._extract_txt.new($format.parser; $controller)
+		: ($format.extension=".eml")
+			This:C1470.extract:=cs:C1710._extract_eml.new($format.parser; $controller)
+		: ($format.extension=".jpg")\
+			 || ($format.extension=".jpeg")\
+			 || ($format.extension=".gif")\
+			 || ($format.extension=".ico")\
+			 || ($format.extension=".bmp")\
+			 || ($format.extension=".webp")\
+			 || ($format.extension=".pnm")\
+			 || ($format.extension=".png")
+			This:C1470.extract:=cs:C1710._extract_jpg.new($format.parser; $controller)
+		: ($format.extension=".pptx")
+			This:C1470.extract:=cs:C1710._extract_pptx.new($format.parser; $controller)
 		Else 
 			return 
 	End case 
