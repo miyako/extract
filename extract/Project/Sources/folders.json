@@ -1,7 +1,9 @@
 {
 	"Extract": {
 		"classes": [
+			"_CLI",
 			"_extract",
+			"_extract_Controller",
 			"extract"
 		]
 	},
