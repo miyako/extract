@@ -1,3 +1,14 @@
 {
+	"Logger": {
+		"methods": [
+			"_Logger_LOG",
+			"_Logger_START"
+		],
+		"classes": [
+			"_Logger",
+			"_LoggerInstance",
+			"Logger"
+		]
+	},
 	"trash": {}
 }
