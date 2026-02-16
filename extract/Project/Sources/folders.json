@@ -1,4 +1,10 @@
 {
+	"Extract": {
+		"classes": [
+			"_extract",
+			"extract"
+		]
+	},
 	"Logger": {
 		"methods": [
 			"_Logger_LOG",
