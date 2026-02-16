@@ -142,10 +142,13 @@ Function _execute($start : Boolean)
 	End if 
 	
 	If ($start)
-		$worker:=4D:C1709.SystemWorker.new(This:C1470._commands.shift(); This:C1470)
+		var $command : Text
+		$command:=This:C1470._commands.shift()
+		cs:C1710.logger.new().log(["Execute SystemWorker. "; "Queue: "+String:C10(This:C1470._commands.length)])
+		$worker:=4D:C1709.SystemWorker.new($command; This:C1470)
 		__SYSTEM_WORKERS__[OB Class:C1730(This:C1470).name]:=$worker
 	Else 
-		//already running, just queue
+		cs:C1710.logger.new().log(["Waiting SystemWorker. "; "Queue: "+String:C10(This:C1470._commands.length)])
 		return 
 	End if 
 	
