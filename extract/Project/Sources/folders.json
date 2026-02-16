@@ -11,9 +11,9 @@
 			"_Logger_START"
 		],
 		"classes": [
-			"__Logger",
 			"_Logger",
-			"_LoggerInstance"
+			"_LoggerInstance",
+			"logger"
 		]
 	},
 	"trash": {}
