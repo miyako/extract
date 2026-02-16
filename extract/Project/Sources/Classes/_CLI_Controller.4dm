@@ -48,7 +48,7 @@ Function get instance()->$instance : cs:C1710._CLI
 	
 Function get worker() : 4D:C1709.SystemWorker
 	
-	return __SYSTEM_WORKERS__[OB Class:C1730(This:C1470).name]  //shared class can't retain system worker
+	return __SYSTEM_WORKERS__[OB Class:C1730(This:C1470.instance).name]  //shared class can't retain system worker
 	
 	//MARK:-public methods
 	
@@ -146,7 +146,7 @@ Function _execute($start : Boolean)
 		$command:=This:C1470._commands.shift()
 		cs:C1710.logger.new().log(["Execute SystemWorker. "; "Queue: "+String:C10(This:C1470._commands.length)])
 		$worker:=4D:C1709.SystemWorker.new($command; This:C1470)
-		__SYSTEM_WORKERS__[OB Class:C1730(This:C1470).name]:=$worker
+		__SYSTEM_WORKERS__[OB Class:C1730(This:C1470.instance).name]:=$worker
 	Else 
 		cs:C1710.logger.new().log(["Waiting SystemWorker. "; "Queue: "+String:C10(This:C1470._commands.length)])
 		return 
