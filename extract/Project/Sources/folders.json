@@ -3,7 +3,6 @@
 		"classes": [
 			"_CLI",
 			"_extract",
-			"_extract_Controller",
 			"_extract_doc",
 			"_extract_docx",
 			"_extract_eml",

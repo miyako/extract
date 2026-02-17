@@ -1,7 +1,7 @@
 property formats : Collection
 property extensions : Collection
 
-Class constructor()
+shared singleton Class constructor()
 	
 	$formats:=[\
 		{extension: ".pdf"; parser: "pdfium-parser"}; \
@@ -25,7 +25,7 @@ Class constructor()
 		{extension: ".png"; parser: "ocrs-parser"}; \
 		{extension: ".pptx"; parser: "opc-parser"}]
 	
-	This:C1470["_formats"]:=$formats
+	This:C1470["_formats"]:=$formats.copy(ck shared:K85:29)
 	
 Function get formats() : Collection
 	

@@ -5,7 +5,7 @@ Class constructor($type : Text; $class : 4D:C1709.Class)
 	var $controller : 4D:C1709.Class
 	var $superclass : 4D:C1709.Class
 	$superclass:=$class.superclass
-	$controller:=cs:C1710._CLI_Controller  //cs._extract_Controller (don't need stdOut, stdErr real time)
+	$controller:=cs:C1710._CLI_Controller
 	
 	While ($superclass#Null:C1517)
 		If ($superclass.name=$controller.name)

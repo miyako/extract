@@ -157,6 +157,19 @@ Function _onExecute($worker : 4D:C1709.SystemWorker; $params : Object)
 		This:C1470._onResponse.call(This:C1470; $worker; $params)
 	End if 
 	
+Function _countRunningWorkers() : Integer
+	
+	$formats:=cs:C1710.formats.new()
+	
+	var $extension : Text
+	var $controllers : Collection
+	$workers:=[]
+	For each ($extension; $formats.extensions)
+		$workers.combine(cs:C1710.extract.new($extension).extract.controller.workers)
+	End for each 
+	
+	return $workers.countValues(False:C215; "terminated")
+	
 Function _execute($start : Boolean)
 	
 	var $instanceName : Text
@@ -164,10 +177,15 @@ Function _execute($start : Boolean)
 	
 	If ($start)
 		var $command : Text
-		var $i; $length : Integer
+		var $i; $length; $runningWorkers; $count : Integer
 		$length:=This:C1470._commands.length
 		$threads:=This:C1470.instance.system.threads
-		For ($i; 1; $threads<$length ? $threads : $length)
+		$runningWorkers:=This:C1470._countRunningWorkers()
+		
+		$count:=$threads<$length ? $threads : $length
+		$count:=$runningWorkers<$count ? ($count-$runningWorkers) : 1
+		
+		For ($i; 1; $count)
 			$command:=This:C1470._commands.shift()
 			$worker:=4D:C1709.SystemWorker.new($command; This:C1470)
 			cs:C1710.logger.new().log([$instanceName; "Start"; $worker.pid; This:C1470._commands.length])
