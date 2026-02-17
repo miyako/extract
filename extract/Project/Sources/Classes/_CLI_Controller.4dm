@@ -141,6 +141,9 @@ Function _onEvent($worker : 4D:C1709.SystemWorker; $params : Object)
 	
 Function _onExecute($worker : 4D:C1709.SystemWorker; $params : Object)
 	
+	var $instanceName : Text
+	$instanceName:=OB Class:C1730(This:C1470.instance).name
+	
 	cs:C1710.logger.new().log([$instanceName; "End"; $worker.pid; This:C1470._commands.length])
 	
 	If (This:C1470._commands.length=0)
