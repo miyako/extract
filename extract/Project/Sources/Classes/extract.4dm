@@ -65,8 +65,7 @@ Class constructor($type : Text; $class : 4D:C1709.Class)
 	
 Function get worker() : 4D:C1709.SystemWorker
 	
-	//deprecated
-	return 
+	return This:C1470.workers.first()
 	
 Function get workers() : Collection
 	
@@ -174,16 +173,11 @@ Function getText($option : Variant; $formula : 4D:C1709.Function; $json : Boolea
 		End if 
 		
 		If (Not:C34($isAsync))
-			//%W-550.26
-			//%W-550.2
 			If ($stdOut)
-				$results.push(This:C1470.controller.stdOut)
+				$results.push($worker.response)
 			Else 
 				$results.push(Null:C1517)
 			End if 
-			This:C1470.controller.clear()
-			//%W+550.2
-			//%W+550.26
 		End if 
 		
 	End for each 
