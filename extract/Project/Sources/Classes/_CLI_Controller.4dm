@@ -150,11 +150,11 @@ Function _execute($start : Boolean)
 	If ($start)
 		var $command : Text
 		$command:=This:C1470._commands.shift()
-		cs:C1710.logger.new().log([$instanceName; "Execute"; "Queue: "+String:C10(This:C1470._commands.length)])
+		cs:C1710.logger.new().log([$instanceName; "Execute"; This:C1470._commands.length])
 		$worker:=4D:C1709.SystemWorker.new($command; This:C1470)
 		__SYSTEM_WORKERS__[$instanceName]:=$worker
 	Else 
-		cs:C1710.logger.new().log([$instanceName; "Waiting"; "Queue: "+String:C10(This:C1470._commands.length)])
+		cs:C1710.logger.new().log([$instanceName; "Wait"; This:C1470._commands.length])
 		return 
 	End if 
 	

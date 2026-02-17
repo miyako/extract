@@ -2,6 +2,9 @@ Class extends _CLI
 
 shared Class constructor($parser : Text; $controller : 4D:C1709.Class)
 	
-	cs:C1710.logger.new().log([$parser; "Creating"])
-	
 	Super:C1705($parser; $controller)
+	
+	var $instanceName : Text
+	$instanceName:=OB Class:C1730(This:C1470).name
+	
+	cs:C1710.logger.new().log([$instanceName; "Create"])
