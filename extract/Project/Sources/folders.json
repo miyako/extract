@@ -1,3 +1,35 @@
 {
+	"Extract": {
+		"classes": [
+			"_CLI",
+			"_extract",
+			"_extract_Controller",
+			"_extract_doc",
+			"_extract_docx",
+			"_extract_eml",
+			"_extract_html",
+			"_extract_jpg",
+			"_extract_msg",
+			"_extract_pdf",
+			"_extract_ppt",
+			"_extract_pptx",
+			"_extract_rtf",
+			"_extract_txt",
+			"_extract_xls",
+			"_extract_xlsx",
+			"extract"
+		]
+	},
+	"Logger": {
+		"methods": [
+			"_Logger_LOG",
+			"_Logger_START"
+		],
+		"classes": [
+			"_Logger",
+			"_LoggerInstance",
+			"logger"
+		]
+	},
 	"trash": {}
 }

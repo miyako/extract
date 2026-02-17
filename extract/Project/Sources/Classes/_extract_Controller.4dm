@@ -3,7 +3,7 @@ property stdErr : Text
 
 Class extends _CLI_Controller
 
-Class constructor($CLI : cs:C1710._CLI)
+shared Class constructor($CLI : cs:C1710._CLI)
 	
 	Super:C1705($CLI)
 	
@@ -18,11 +18,15 @@ Function clear() : cs:C1710._extract_Controller
 	
 Function onData($worker : 4D:C1709.SystemWorker; $params : Object)
 	
-	This:C1470.stdOut+=$params.data
+	Use (This:C1470)
+		This:C1470.stdOut+=$params.data
+	End use 
 	
 Function onDataError($worker : 4D:C1709.SystemWorker; $params : Object)
 	
-	This:C1470.stdErr+=$params.data
+	Use (This:C1470)
+		This:C1470.stdErr+=$params.data
+	End use 
 	
 Function onResponse($worker : 4D:C1709.SystemWorker; $params : Object)
 	

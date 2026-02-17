@@ -4,4 +4,9 @@
 var $text : Text
 $text:=$worker.response
 
-//TRACE
+var $folder : 4D:C1709.Folder
+var $file : 4D:C1709.File
+$folder:=$params.context.dst
+$file:=$params.context.src
+
+$folder.file($file.fullName).setText($text)

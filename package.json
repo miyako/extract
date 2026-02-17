@@ -6,11 +6,11 @@
   ],
   "license": "MIT",
   "repository": "https://github.com/miyako/extract",
-  "version": "20.1.1",
+  "version": "21.0.5",
   "tool": {
     "platform": "macos",
-    "branch": "20.x",
-    "version": "20.7",
+    "branch": "21.x",
+    "version": "21.0",
     "build": "latest",
     "arch": "arm"
   }
