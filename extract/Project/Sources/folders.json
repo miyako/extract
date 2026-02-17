@@ -17,7 +17,8 @@
 			"_extract_txt",
 			"_extract_xls",
 			"_extract_xlsx",
-			"extract"
+			"extract",
+			"formats"
 		]
 	},
 	"Logger": {
@@ -29,6 +30,21 @@
 			"_Logger",
 			"_LoggerInstance",
 			"logger"
+		]
+	},
+	"Tests": {
+		"methods": [
+			"TEST_docx",
+			"TEST_formats",
+			"TEST_html",
+			"TEST_image",
+			"TEST_msg",
+			"TEST_pdf",
+			"TEST_ppt",
+			"TEST_pptx",
+			"TEST_rtf",
+			"TEST_txt",
+			"TEST_xlsx"
 		]
 	},
 	"trash": {}

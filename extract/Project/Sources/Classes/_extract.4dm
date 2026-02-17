@@ -1,3 +1,5 @@
+property system : cs:C1710._system
+
 Class extends _CLI
 
 shared Class constructor($parser : Text; $controller : 4D:C1709.Class)
@@ -8,3 +10,5 @@ shared Class constructor($parser : Text; $controller : 4D:C1709.Class)
 	$instanceName:=OB Class:C1730(This:C1470).name
 	
 	cs:C1710.logger.new().log([$instanceName; "Create"])
+	
+	This:C1470.system:=cs:C1710._system.new()
