@@ -48,8 +48,20 @@ Function get instance()->$instance : cs:C1710._CLI
 	
 Function get worker() : 4D:C1709.SystemWorker
 	
+	return This:C1470.workers.first()
+	
+Function get workers() : Collection
+	
 	var $instanceName : Text
 	$instanceName:=OB Class:C1730(This:C1470.instance).name
+	
+	If (__SYSTEM_WORKERS__=Null:C1517)
+		__SYSTEM_WORKERS__:={}
+	End if 
+	
+	If (__SYSTEM_WORKERS__[$instanceName]=Null:C1517)
+		__SYSTEM_WORKERS__[$instanceName]:=[]
+	End if 
 	
 	return __SYSTEM_WORKERS__[$instanceName]  //shared class can't retain system worker
 	
@@ -86,10 +98,12 @@ Function execute($command : Variant; $message : Variant; $context : Variant) : c
 		This:C1470._messages.combine($messages)
 		This:C1470._contexts.combine($contexts.copy(ck shared:K85:29; This:C1470._contexts))
 		
-		var $worker : 4D:C1709.SystemWorker
-		$worker:=This:C1470.worker
+		var $workers : Collection
+		$workers:=This:C1470.workers
 		
-		This:C1470._execute(($worker=Null:C1517) || ($worker.terminated))
+		$terminated:=$workers.countValues(True:C214; "terminated")=$workers.length
+		
+		This:C1470._execute($terminated)
 		
 	End if 
 	
@@ -127,6 +141,8 @@ Function _onEvent($worker : 4D:C1709.SystemWorker; $params : Object)
 	
 Function _onExecute($worker : 4D:C1709.SystemWorker; $params : Object)
 	
+	cs:C1710.logger.new().log([$instanceName; "End"; $worker.pid; This:C1470._commands.length])
+	
 	If (This:C1470._commands.length=0)
 		This:C1470._abort()
 	Else 
@@ -140,55 +156,44 @@ Function _onExecute($worker : 4D:C1709.SystemWorker; $params : Object)
 	
 Function _execute($start : Boolean)
 	
-	If (__SYSTEM_WORKERS__=Null:C1517)
-		__SYSTEM_WORKERS__:={}
-	End if 
-	
 	var $instanceName : Text
 	$instanceName:=OB Class:C1730(This:C1470.instance).name
 	
 	If ($start)
 		var $command : Text
-		$command:=This:C1470._commands.shift()
-		cs:C1710.logger.new().log([$instanceName; "Execute"; This:C1470._commands.length])
-		$worker:=4D:C1709.SystemWorker.new($command; This:C1470)
-		__SYSTEM_WORKERS__[$instanceName]:=$worker
+		var $i; $length : Integer
+		$length:=This:C1470._commands.length
+		$threads:=This:C1470.instance.system.threads
+		For ($i; 1; $threads<$length ? $threads : $length)
+			$command:=This:C1470._commands.shift()
+			$worker:=4D:C1709.SystemWorker.new($command; This:C1470)
+			cs:C1710.logger.new().log([$instanceName; "Start"; $worker.pid; This:C1470._commands.length])
+			__SYSTEM_WORKERS__[$instanceName].push($worker)
+			Use (This:C1470)
+				This:C1470._complete:=False:C215
+			End use 
+			var $message : Variant
+			$message:=This:C1470._messages.shift()
+			var $vt : Integer
+			$vt:=Value type:C1509($message)
+			If ($vt=Is object:K8:27) && (OB Instance of:C1731($message; 4D:C1709.Blob))
+				$vt:=Is BLOB:K8:12
+			End if 
+			Case of 
+				: ($vt=Is object:K8:27) || ($vt=Is collection:K8:32)
+					$worker.postMessage(JSON Stringify:C1217($message))
+					$worker.closeInput()
+				: ($vt=Is BLOB:K8:12) || ($vt=Is text:K8:3)
+					$worker.postMessage($message)
+					$worker.closeInput()
+				: ($vt=Is real:K8:4) || ($vt=Is integer:K8:5) || ($vt=Is boolean:K8:9) || ($vt=Is date:K8:7) || ($vt=Is time:K8:8)
+					$worker.postMessage(String:C10($message))
+					$worker.closeInput()
+			End case 
+		End for 
 	Else 
-		cs:C1710.logger.new().log([$instanceName; "Wait"; This:C1470._commands.length])
-		return 
+		cs:C1710.logger.new().log([$instanceName; "Wait"; "*"; This:C1470._commands.length])
 	End if 
-	
-	Use (This:C1470)
-		This:C1470._complete:=False:C215
-	End use 
-	
-	var $message : Variant
-	$message:=This:C1470._messages.shift()
-	
-	var $vt : Integer
-	$vt:=Value type:C1509($message)
-	
-	If ($vt=Is object:K8:27) && (OB Instance of:C1731($message; 4D:C1709.Blob))
-		$vt:=Is BLOB:K8:12
-	End if 
-	
-	Case of 
-		: ($vt=Is object:K8:27) || ($vt=Is collection:K8:32)
-			
-			$worker.postMessage(JSON Stringify:C1217($message))
-			$worker.closeInput()
-			
-		: ($vt=Is BLOB:K8:12) || ($vt=Is text:K8:3)
-			
-			$worker.postMessage($message)
-			$worker.closeInput()
-			
-		: ($vt=Is real:K8:4) || ($vt=Is integer:K8:5) || ($vt=Is boolean:K8:9) || ($vt=Is date:K8:7) || ($vt=Is time:K8:8)
-			
-			$worker.postMessage(String:C10($message))
-			$worker.closeInput()
-			
-	End case 
 	
 Function _abort()
 	

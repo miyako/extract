@@ -1,6 +1,6 @@
 property threads : Integer
 
-shared singleton Class constructor()
+Class constructor()
 	
 	var $systemInfo : Object
 	$systemInfo:=System info:C1571

@@ -2,6 +2,7 @@ property _EOL; _name; _platform; _executableName; _executablePath : Text
 property _executableFile : 4D:C1709.File
 property _currentDirectory : 4D:C1709.Folder
 property _controller : cs:C1710._CLI_Controller
+property system : cs:C1710._system
 
 shared Class constructor($executableName : Text; $controller : 4D:C1709.Class)
 	
@@ -49,8 +50,12 @@ shared Class constructor($executableName : Text; $controller : 4D:C1709.Class)
 		$_controller:=$controller.new(This:C1470)  //custom controller
 	End if 
 	
+	var $system : cs:C1710._system
+	$system:=cs:C1710._system.new()
+	
 	Use (This:C1470)
 		This:C1470._controller:=$_controller
+		This:C1470.system:=OB Copy:C1225($system; ck shared:K85:29)
 	End use 
 	
 Function get name()->$name : Text

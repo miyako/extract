@@ -65,11 +65,16 @@ Class constructor($type : Text; $class : 4D:C1709.Class)
 	
 Function get worker() : 4D:C1709.SystemWorker
 	
+	//deprecated
+	return 
+	
+Function get workers() : Collection
+	
 	If (This:C1470.extract=Null:C1517)
 		return 
 	End if 
 	
-	return This:C1470.extract.controller.worker
+	return This:C1470.extract.controller.workers
 	
 Function terminate()
 	
