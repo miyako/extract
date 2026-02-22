@@ -1,6 +1,136 @@
 {
 	"_method_": {},
 	"cs.extract": {
+		"logger": {
+			"new()": {
+				"Syntax": "**.new**()",
+				"Params": [],
+				"Summary": ""
+			}
+		},
+		"_LoggerInstance": {
+			"new()": {
+				"Syntax": "**.new**( *file* : 4D.File )",
+				"Params": [
+					[
+						"file",
+						"4D.File",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"formats": {
+			"new()": {
+				"Syntax": "**.new**()",
+				"Params": [],
+				"Summary": ""
+			}
+		},
+		"_extract_txt": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_pdf": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_CLI_Controller": {
+			"new()": {
+				"Syntax": "**.new**( *CLI* : cs.extract._CLI )",
+				"Params": [
+					[
+						"CLI",
+						"cs.extract._CLI",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_xlsx": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_ppt": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
 		"_CLI": {
 			"new()": {
 				"Syntax": "**.new**( *executableName* : Text; *controller* : 4D.Class )",
@@ -19,12 +149,12 @@
 				"Summary": ""
 			}
 		},
-		"extract": {
+		"_extract_docx": {
 			"new()": {
-				"Syntax": "**.new**( *type* : Text; *controller* : 4D.Class )",
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
 				"Params": [
 					[
-						"type",
+						"parser",
 						"Text",
 						"->"
 					],
@@ -37,46 +167,367 @@
 				"Summary": ""
 			}
 		},
-		"_Form": {
+		"_extract_xls": {
 			"new()": {
-				"Syntax": "**.new**()",
-				"Params": [],
-				"Summary": ""
-			}
-		},
-		"_CLI_Controller": {
-			"new()": {
-				"Syntax": "**.new**( *CLI* : cs.extract._CLI )",
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
 				"Params": [
 					[
-						"CLI",
-						"cs.extract._CLI",
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
 						"->"
 					]
 				],
 				"Summary": ""
 			}
 		},
-		"_extract_Controller": {
+		"extract": {
 			"new()": {
-				"Syntax": "**.new**( *CLI* : cs.extract._CLI )",
+				"Syntax": "**.new**( *type* : Text; *class* : 4D.Class )",
 				"Params": [
 					[
-						"CLI",
-						"cs.extract._CLI",
+						"type",
+						"Text",
+						"->"
+					],
+					[
+						"class",
+						"4D.Class",
 						"->"
 					]
 				],
 				"Summary": ""
 			}
 		},
-		"formats": {
+		"_extract_msg": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_Logger": {
+			"new()": {
+				"Syntax": "**.new**( *file* : 4D.File )",
+				"Params": [
+					[
+						"file",
+						"4D.File",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_system": {
 			"new()": {
 				"Syntax": "**.new**()",
 				"Params": [],
+				"Summary": ""
+			}
+		},
+		"_extract_jpg": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_html": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_pptx": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_doc": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_eml": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"_extract_rtf": {
+			"new()": {
+				"Syntax": "**.new**( *parser* : Text; *controller* : 4D.Class )",
+				"Params": [
+					[
+						"parser",
+						"Text",
+						"->"
+					],
+					[
+						"controller",
+						"4D.Class",
+						"->"
+					]
+				],
 				"Summary": ""
 			}
 		}
+	},
+	"logger": {
+		"_inheritedFrom_": "_Logger"
+	},
+	"_LoggerInstance": {
+		"log()": {
+			"Syntax": "**.log**( *messages* : Collection )",
+			"Params": [
+				[
+					"messages",
+					"Collection",
+					"->"
+				]
+			],
+			"Summary": ""
+		},
+		"path": {
+			"Syntax": "path : Text"
+		},
+		"fileHandle": {
+			"Syntax": "fileHandle : 4D.FileHandle"
+		}
+	},
+	"_extract": {
+		"_inheritedFrom_": "_CLI"
+	},
+	"formats": {
+		"get extensions()": {
+			"Syntax": "**.get extensions**() : Collection",
+			"Params": [
+				[
+					"",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get formats()": {
+			"Syntax": "**.get formats**() : Collection",
+			"Params": [
+				[
+					"",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"extensions": {
+			"Syntax": "extensions : Collection"
+		},
+		"formats": {
+			"Syntax": "formats : Collection"
+		}
+	},
+	"_extract_txt": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_pdf": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_CLI_Controller": {
+		"get instance()": {
+			"Syntax": "**.get instance**()->instance : cs.extract._CLI",
+			"Params": [
+				[
+					"instance",
+					"cs.extract._CLI",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"terminate()": {
+			"Syntax": "**.terminate**()",
+			"Params": [],
+			"Summary": ""
+		},
+		"execute()": {
+			"Syntax": "**.execute**( *command* : Variant; *message* : Variant; *context* : Variant ) : cs.extract._CLI_Controller",
+			"Params": [
+				[
+					"command",
+					"Variant",
+					"->"
+				],
+				[
+					"message",
+					"Variant",
+					"->"
+				],
+				[
+					"context",
+					"Variant",
+					"->"
+				],
+				[
+					"",
+					"cs.extract._CLI_Controller",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get complete()": {
+			"Syntax": "**.get complete**()->complete : Boolean",
+			"Params": [
+				[
+					"complete",
+					"Boolean",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get workers()": {
+			"Syntax": "**.get workers**() : Collection",
+			"Params": [
+				[
+					"",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get worker()": {
+			"Syntax": "**.get worker**() : 4D.SystemWorker",
+			"Params": [
+				[
+					"",
+					"4D.SystemWorker",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"get commands()": {
+			"Syntax": "**.get commands**()->commands : Collection",
+			"Params": [
+				[
+					"commands",
+					"Collection",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"currentDirectory": {
+			"Syntax": "currentDirectory : 4D.Folder"
+		},
+		"onTerminate": {
+			"Syntax": "onTerminate : 4D.Function"
+		},
+		"timeout": {
+			"Syntax": "timeout : Variant"
+		},
+		"variables": {
+			"Syntax": "variables : Object"
+		},
+		"encoding": {
+			"Syntax": "encoding : Text"
+		},
+		"onResponse": {
+			"Syntax": "onResponse : 4D.Function"
+		},
+		"dataType": {
+			"Syntax": "dataType : Text"
+		},
+		"hideWindow": {
+			"Syntax": "hideWindow : Boolean"
+		}
+	},
+	"_extract_xlsx": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_ppt": {
+		"_inheritedFrom_": "_extract"
 	},
 	"_CLI": {
 		"get controller()": {
@@ -214,22 +665,20 @@
 				]
 			],
 			"Summary": ""
+		},
+		"system": {
+			"Syntax": "system : cs.extract._system"
 		}
 	},
+	"_extract_docx": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_xls": {
+		"_inheritedFrom_": "_extract"
+	},
 	"extract": {
-		"get controller()": {
-			"Syntax": "**.get controller**()->controller : cs.extract._extract_Controller",
-			"Params": [
-				[
-					"controller",
-					"cs.extract._extract_Controller",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
 		"getText()": {
-			"Syntax": "**.getText**( *option* : Variant; *formula* : 4D.Function ) : Collection",
+			"Syntax": "**.getText**( *option* : Variant; *formula* : 4D.Function; *json* : Boolean ) : Collection",
 			"Params": [
 				[
 					"option",
@@ -239,6 +688,11 @@
 				[
 					"formula",
 					"4D.Function",
+					"->"
+				],
+				[
+					"json",
+					"Boolean",
 					"->"
 				],
 				[
@@ -252,6 +706,17 @@
 		"terminate()": {
 			"Syntax": "**.terminate**()",
 			"Params": [],
+			"Summary": ""
+		},
+		"get workers()": {
+			"Syntax": "**.get workers**() : Collection",
+			"Params": [
+				[
+					"",
+					"Collection",
+					"<-"
+				]
+			],
 			"Summary": ""
 		},
 		"get worker()": {
@@ -265,244 +730,50 @@
 			],
 			"Summary": ""
 		},
-		"_inheritedFrom_": "_CLI"
-	},
-	"_Form": {
-		"onUnload()": {
-			"Syntax": "**.onUnload**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"onLoad()": {
-			"Syntax": "**.onLoad**()",
-			"Params": [],
-			"Summary": ""
+		"extract": {
+			"Syntax": "extract : cs.extract._extract"
 		}
 	},
-	"_CLI_Controller": {
-		"execute()": {
-			"Syntax": "**.execute**( *command* : Variant; *message* : Variant ) : cs.extract._CLI_Controller",
+	"_extract_msg": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_Logger": {
+		"log()": {
+			"Syntax": "**.log**( *messages* : Collection )",
 			"Params": [
 				[
-					"command",
-					"Variant",
-					"->"
-				],
-				[
-					"message",
-					"Variant",
-					"->"
-				],
-				[
-					"",
-					"cs.extract._CLI_Controller",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get instance()": {
-			"Syntax": "**.get instance**()->instance : cs.extract._CLI",
-			"Params": [
-				[
-					"instance",
-					"cs.extract._CLI",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"terminate()": {
-			"Syntax": "**.terminate**()",
-			"Params": [],
-			"Summary": ""
-		},
-		"get commands()": {
-			"Syntax": "**.get commands**()->commands : Collection",
-			"Params": [
-				[
-					"commands",
+					"messages",
 					"Collection",
-					"<-"
+					"->"
 				]
 			],
 			"Summary": ""
 		},
-		"get worker()": {
-			"Syntax": "**.get worker**()->worker : 4D.SystemWorker",
-			"Params": [
-				[
-					"worker",
-					"4D.SystemWorker",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get complete()": {
-			"Syntax": "**.get complete**()->complete : Boolean",
-			"Params": [
-				[
-					"complete",
-					"Boolean",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"currentDirectory": {
-			"Syntax": "currentDirectory : 4D.Folder"
-		},
-		"onTerminate": {
-			"Syntax": "onTerminate : 4D.Function"
-		},
-		"timeout": {
-			"Syntax": "timeout : Variant"
-		},
-		"variables": {
-			"Syntax": "variables : Object"
-		},
-		"encoding": {
-			"Syntax": "encoding : Text"
-		},
-		"onResponse": {
-			"Syntax": "onResponse : 4D.Function"
-		},
-		"dataType": {
-			"Syntax": "dataType : Text"
-		},
-		"hideWindow": {
-			"Syntax": "hideWindow : Boolean"
+		"path": {
+			"Syntax": "path : Text"
 		}
 	},
-	"_extract_Controller": {
-		"onTerminate()": {
-			"Syntax": "**.onTerminate**( *worker* : 4D.SystemWorker; *params* : Object )",
-			"Params": [
-				[
-					"worker",
-					"4D.SystemWorker",
-					"->"
-				],
-				[
-					"params",
-					"Object",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"onError()": {
-			"Syntax": "**.onError**( *worker* : 4D.SystemWorker; *params* : Object )",
-			"Params": [
-				[
-					"worker",
-					"4D.SystemWorker",
-					"->"
-				],
-				[
-					"params",
-					"Object",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"onDataError()": {
-			"Syntax": "**.onDataError**( *worker* : 4D.SystemWorker; *params* : Object )",
-			"Params": [
-				[
-					"worker",
-					"4D.SystemWorker",
-					"->"
-				],
-				[
-					"params",
-					"Object",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"onData()": {
-			"Syntax": "**.onData**( *worker* : 4D.SystemWorker; *params* : Object )",
-			"Params": [
-				[
-					"worker",
-					"4D.SystemWorker",
-					"->"
-				],
-				[
-					"params",
-					"Object",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"onResponse()": {
-			"Syntax": "**.onResponse**( *worker* : 4D.SystemWorker; *params* : Object )",
-			"Params": [
-				[
-					"worker",
-					"4D.SystemWorker",
-					"->"
-				],
-				[
-					"params",
-					"Object",
-					"->"
-				]
-			],
-			"Summary": ""
-		},
-		"clear()": {
-			"Syntax": "**.clear**() : cs.extract._extract_Controller",
-			"Params": [
-				[
-					"",
-					"cs.extract._extract_Controller",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"stdErr": {
-			"Syntax": "stdErr : Text"
-		},
-		"stdOut": {
-			"Syntax": "stdOut : Text"
-		},
-		"_inheritedFrom_": "_CLI_Controller"
-	},
-	"formats": {
-		"get extensions()": {
-			"Syntax": "**.get extensions**() : Collection",
-			"Params": [
-				[
-					"",
-					"Collection",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"get formats()": {
-			"Syntax": "**.get formats**() : Collection",
-			"Params": [
-				[
-					"",
-					"Collection",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"extensions": {
-			"Syntax": "extensions : Collection"
-		},
-		"formats": {
-			"Syntax": "formats : Collection"
+	"_system": {
+		"threads": {
+			"Syntax": "threads : Integer"
 		}
+	},
+	"_extract_jpg": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_html": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_pptx": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_doc": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_eml": {
+		"_inheritedFrom_": "_extract"
+	},
+	"_extract_rtf": {
+		"_inheritedFrom_": "_extract"
 	}
 }
