@@ -101,7 +101,7 @@ Function execute($command : Variant; $message : Variant; $context : Variant) : c
 		var $workers : Collection
 		$workers:=This:C1470.workers
 		
-		$terminated:=$workers.countValues(True:C214; "terminated")=$workers.length
+		$terminated:=$workers.countValues(True:C214; "worker.terminated")=$workers.length
 		
 		This:C1470._execute($terminated)
 		
@@ -173,7 +173,7 @@ Function _countRunningWorkers() : Integer
 		$workers.combine(cs:C1710.extract.new($extension).extract.controller.workers)
 	End for each 
 	
-	return $workers.countValues(False:C215; "terminated")
+	return $workers.countValues(False:C215; "worker.terminated")
 	
 Function _execute($start : Boolean)
 	
